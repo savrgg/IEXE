@@ -1,0 +1,88 @@
+%% 1
+sed '1d' profeco.csv > profeco_w_header_prev.csv
+awk -F',' 'NF==15 {print}' profeco_w_header_prev.csv > profeco_w_header.csv  
+
+%% 2
+profeco = LOAD 'profeco_w_header.csv'  USING PigStorage(',') AS (producto: chararray, 
+presentacion: chararray, marca: chararray, categoria: chararray,catalogo: chararray, precio: double, 
+fechaRegistro: chararray, cadenaComercial: chararray, giro: chararray, nombreComercial: chararray, 
+direccion: chararray,estado: chararray,municipio: chararray, latitud: double,longitud: double);
+
+Ggiro = GROUP profeco BY giro;
+cuenta_giro = FOREACH Ggiro GENERATE group, COUNT(profeco);
+
+Gestados = GROUP profeco BY estado;
+cuenta_estados = FOREACH Gestados GENERATE group, COUNT(profeco);
+DUMP cuenta_giro;
+DUMP cuenta_estados;
+
+
+%% 3
+profeco = LOAD 'profeco_w_header.csv'  USING PigStorage(',') AS (producto: chararray, presentacion: chararray, marca: chararray, categoria: chararray,catalogo: chararray, precio: double, fechaRegistro: chararray, cadenaComercial: chararray, giro: chararray, nombreComercial: chararray, direccion: chararray,estado: chararray,municipio: chararray, latitud: double,longitud: double);
+
+Gcat = GROUP profeco BY categoria;
+cuenta_cat = FOREACH Gcat GENERATE group AS Categ, COUNT(profeco) AS cuenta_reg;
+cuenta_desc = ORDER cuenta_cat BY cuenta_reg DESC;
+DUMP cuenta_desc;
+
+azucar = FILTER profeco BY categoria == '"AZUCAR"';
+edos = GROUP azucar BY estado;
+Edos_azucar = FOREACH edos GENERATE group, COUNT(azucar) AS consumo_azucar;
+orden_edos_azucar= ORDER Edos_azucar BY consumo_azucar ASC;
+resultado = LIMIT orden_edos_azucar 1;
+DUMP resultado;
+
+huevo = FILTER profeco BY categoria =='"HUEVO"';
+marca_huevo = GROUP huevo BY marca;
+marchuevo= FOREACH marca_huevo GENERATE group, COUNT(huevo) AS consumo_huevo;
+Orden_huevo = ORDER marchuevo BY consumo_huevo DESC;
+Resultado2 = LIMIT Orden_huevo 10;
+DUMP Resultado2;
+
+
+%% 4
+
+profeco = LOAD 'profeco_w_header.csv'  USING PigStorage(',') AS (producto: chararray, presentacion: chararray, marca: chararray, categoria: chararray,catalogo: chararray, precio: double, fechaRegistro: chararray, cadenaComercial: chararray, giro: chararray, nombreComercial: chararray, direccion: chararray,estado: chararray,municipio: chararray, latitud: double,longitud: double);
+
+tortilla = FILTER profeco BY producto matches '.*TORTILLA.*';
+edos1 = GROUP tortilla BY estado;
+Estados_Max= FOREACH edos1 GENERATE group, MAX(tortilla.precio);
+DUMP Estados_Max;
+
+Estados_Min= FOREACH edos1 GENERATE group, MIN(tortilla.precio);
+DUMP Estados_Min;
+
+Estados_AVG= FOREACH edos1 GENERATE group, AVG(tortilla.precio);
+DUMP Estados_AVG;
+
+
+%% 5
+
+profeco = LOAD 'profeco_w_header.csv'  USING PigStorage(',') AS (producto: chararray, presentacion: chararray, marca: chararray, categoria: chararray,catalogo: chararray, precio: double, fechaRegistro: chararray, cadenaComercial: chararray, giro: chararray, nombreComercial: chararray, direccion: chararray,estado: chararray,municipio: chararray, latitud: double,longitud: double);
+
+
+EnColima = FILTER profeco BY estado matches '.*COLIMA.*';
+ElPanC = FILTER EnColima BY categoria matches '.*PAN.*' ;
+porCadenaC= GROUP ElPanC by cadenaComercial;
+promediosC= FOREACH porCadenaC GENERATE group, AVG(ElPanC.precio) AS Promediodelpan;
+SalidaC= Order promediosC By Promediodelpan ASC;
+ResultC= LIMIT SalidaC 5;
+DUMP ResultC;
+
+EnDF = FILTER profeco BY estado matches '.*DISTRITO.*';
+ElPanDF = FILTER EnDF BY categoria matches '.*PAN.*' ;
+porCadenaDF= GROUP ElPanDF by cadenaComercial;
+promediosDF= FOREACH porCadenaDF GENERATE group, AVG(ElPanDF.precio) AS Promediodelpan;
+SalidaDF= Order promediosDF By Promediodelpan DESC;
+ResultDF= LIMIT SalidaDF 5;
+DUMP ResultDF;
+
+EnO = FILTER profeco BY estado matches '.*OAXACA.*';
+ElPanO = FILTER EnO BY categoria matches '.*ARROZ Y CEREALES PREPARADOS.*' ;
+porCadenaO= GROUP ElPanO by cadenaComercial;
+promediosO= FOREACH porCadenaO GENERATE group, AVG(ElPanO.precio) AS Promediodelpan;
+SalidaO= Order promediosO By Promediodelpan DESC;
+ResultO= LIMIT SalidaO 5;
+DUMP ResultO;
+
+

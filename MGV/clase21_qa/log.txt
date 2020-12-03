@@ -1,0 +1,53 @@
+cat 05_filterout_points.sh 
+cat 04_substitute_pattern.sh
+cat 03_remove_blank_lines.sh 
+cat 01_arithmetic_operators.sh
+bash 01_arithmetic_operators.sh
+cat 02_variable_substitution.sh 
+bash 02_variable_substitution.sh
+cat 03_remove_blank_lines.sh 
+bash 03_remove_blank_lines.sh 03_file.txt 
+cat 03_file.txt 
+bash 03_remove_blank_lines.sh 03_file.txt 
+cat 04_substitute_pattern.sh
+cat 04_file.txt 
+bash 04_substitute_pattern.sh 04_file.txt 
+cat 05_filterout_points.sh 
+cat 05_file.txt 
+bash 05_filterout_points.sh 05_file.txt 
+ls
+nano prueba.sh
+nano prueba.sh 
+bash prueba.sh 100 200
+bash prueba.sh 99 200
+nano prueba.sh
+bash prueba.sh 99 200
+nano prueba.sh
+bash prueba.sh 99 200
+nano prueba.sh
+ls
+ls
+head uci-news-aggregator.csv 
+ cut -d',' -f4 uci-news-aggregator.csv | grep -i 'NASDAQ' | wc -l 
+grep -in 'rusia' uci-news-aggregator.csv
+cut -d',' -f4,2 uci-news-aggregator.csv | grep -i 'reuters' | tail -3
+cut -d',' -f4,2 uci-news-aggregator.csv | grep -i 'reuters$' | tail -3
+cut -d',' -f4,2 uci-news-aggregator.csv | grep -in 'reuters$' | tail -3
+cut -d',' -f2 uci-news-aggregator.csv | grep -i '\.\.\.' | wc -l
+cut -d',' -f2 uci-news-aggregator.csv | grep -i '\.\.\.' | head -3
+cut -d',' -f2 uci-news-aggregator.csv | grep -i '\.\.\.' | tail -3
+cut -d',' -f2 uci-news-aggregator.csv | grep -i '...' | head -3
+cut -d',' -f2 uci-news-aggregator.csv | grep -i '...' | wc -l
+cat uci-news-aggregator.csv | wc -l
+grep -in 'rusia' uci-news-aggregator.csv
+grep -in 'russia' uci-news-aggregator.csv
+grep -in 'rusia' uci-news-aggregator.csv | wc -l
+grep -in 'russia' uci-news-aggregator.csv | wc -l
+grep -in 'rusia' uci-news-aggregator.csv
+cut -d',' -f2 uci-news-aggregator.csv | grep 'CEO' | wc -l
+cut -d',' -f2 uci-news-aggregator.csv | grep ' CEO ' | wc -l
+cut -d',' -f2 uci-news-aggregator.csv | grep ' CEO.' | wc -l
+cut -d',' -f2 uci-news-aggregator.csv | grep ' CEO\.' | wc -l
+cut -d',' -f2 uci-news-aggregator.csv | grep ' CEO\.'
+cut -d',' -f2 uci-news-aggregator.csv | grep 'CEO' | wc -l
+cut -d',' -f2 uci-news-aggregator.csv | grep -i 'likely' | wc -l
