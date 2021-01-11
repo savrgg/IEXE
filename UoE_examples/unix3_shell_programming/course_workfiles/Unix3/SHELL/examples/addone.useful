@@ -1,0 +1,42 @@
+#!/bin/sh
+
+
+# argument is original value of variable to be incremented by one.
+
+addone()
+{
+   # Use a sed to remove all numeric chars from arg
+   # Should leave Nowt empty
+
+   if test $# -ne 1  
+   then
+      echo "No argument provided to increment function"
+      return 1
+   fi
+
+   Nowt=`echo $1 | sed 's/[0-9]//g'`
+
+   if test "$Nowt" 
+   then
+      echo "Argument not numeric: $1"
+      return 1
+   fi
+
+   Added_one=`expr $1 + 1`
+   return 0
+}
+
+
+echo "Enter number to be incremented : \\c"
+read Value
+
+if  addone $Value 
+then
+   Value=$Added_one
+   echo Result is $Value
+   exit 0
+else
+   # Error
+   exit 1
+fi
+

@@ -1,0 +1,13 @@
+#!/bin/sh
+
+   # find-string - find named string in files in cwd 
+   # and copy them to directory of same name
+
+   mkdir $1
+
+   for File in `grep -l $1 *`
+   do
+      cp $File $1/$File
+   done
+
+

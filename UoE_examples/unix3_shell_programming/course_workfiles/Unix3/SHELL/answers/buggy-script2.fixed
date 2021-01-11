@@ -1,0 +1,11 @@
+#!/bin/sh
+
+echo Counting to ten
+
+Cnt=0
+while test $Cnt -lt 11
+do
+
+   echo $Cnt
+   Cnt=`expr $Cnt + 1`
+done

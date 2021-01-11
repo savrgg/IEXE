@@ -1,0 +1,31 @@
+#!/bin/sh
+
+# Functions called with two arguments
+# $1 is the prompt
+# $2 is the correct answer ( t for true and f for false )
+
+# Note: right_or_wrong exits if the answer is incorrect
+right_or_wrong()
+{
+Prompt=$1
+echo $1 [ t or f ] \\c
+read Answer
+if [ $Answer != $2 ]
+then
+   echo "Wrong - try again !"
+   exit 1
+else 
+   return 0
+fi
+
+}
+
+right_or_wrong "Creamed rice is good food" f
+right_or_wrong "You should never eat anything bigger than your head" t
+right_or_wrong "Lager is a slimming aid" f
+
+# Got here - so all questions answered correctly
+
+echo "Well done - you're a foodie"
+exit 0 
+

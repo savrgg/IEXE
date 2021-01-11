@@ -1,0 +1,23 @@
+#!/bin/sh
+#go-web: start W3 browser appropriate to TERM type
+case $TERM in 
+   xterm)
+      if test "$DISPLAY" 
+      then
+         # Run an X windows Web browser
+         echo "Starting xmosaic ..."
+         echo Mosaic
+      else
+         echo "Running in an xterm but display variable not set"
+         exit 1
+      fi
+      ;;
+   vt100|ansi)
+      echo "Starting screen based Web browser ..."
+      echo lynx
+      ;;        
+   *)
+      echo "Cannot run Web browser on terminal $TERM"
+      ;;
+esac
+exit $?

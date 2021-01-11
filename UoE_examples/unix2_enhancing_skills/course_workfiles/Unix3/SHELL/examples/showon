@@ -1,0 +1,3 @@
+#!/bin/sh
+#showon - is the specified user logged in 
+who | grep $1

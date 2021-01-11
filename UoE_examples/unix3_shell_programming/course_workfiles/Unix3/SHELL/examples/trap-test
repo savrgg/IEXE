@@ -1,0 +1,19 @@
+#!/bin/sh
+
+trap 'rm /tmp/tempfile.$$; echo removing tmp/tempfile.$$ and terminating; exit 1'  15
+trap 'rm /tmp/tempfile.$$; echo removing tmp/tempfile.$$;' 1 2 3 
+
+
+echo I am process $$
+
+touch /tmp/tempfile.$$
+echo  Created /tmp/tempfile.$$
+
+echo snoozing ...
+while true
+do
+   echo ... still snoozing
+   sleep 5
+done
+
+exit 0

@@ -1,0 +1,26 @@
+#!/bin/sh
+
+if test $# != 1 
+then
+   echo "usage: buggy-script3 file"
+   exit 1
+fi
+
+if test ! -f $1
+then
+   echo "No such file $1"
+   exit 1
+fi
+
+Linenum=0
+cat $1 | while read Line
+do
+   Linenum=`expr $Linenum + 1`
+   echo "$Linenum: $Line"
+done
+
+echo $File had $Linenum lines
+
+exit 0
+
+

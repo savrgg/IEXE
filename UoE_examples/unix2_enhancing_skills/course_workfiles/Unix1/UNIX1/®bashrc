@@ -1,0 +1,22 @@
+. /usr/local/etc/DOT_BASHRC
+
+umask 077
+PATH=/usr/local/athena/bin:/usr/local/athena/ucb:$PATH
+#MANPATH=/usr/local/athena/man
+
+PATH=$PATH:/usr/local/emas/bin:/usr/bin/X11:/usr/openwin/bin
+#set    prompt = ("$cwd"": ")
+
+#MANPATH=
+MORE='-c'
+export PRINTER="psatl3b"
+export TERM=vt100
+export TERM=vt100
+export DELIVERY="EUCS Level 2 Appleton Tower"
+EDITOR=ue
+VISUAL=ue
+export PATH MANPATH MORE EDITOR VISUAL
+# make any additions below this line
+unset LINES
+unset COLUMNS
+

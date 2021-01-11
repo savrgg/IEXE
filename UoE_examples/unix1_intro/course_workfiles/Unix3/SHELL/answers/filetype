@@ -1,0 +1,46 @@
+#!/bin/sh
+
+if test \! "$1"
+then
+   echo Usage filetype \"file\"
+   exit 1
+fi
+
+Dir=0
+
+if test -f $1
+then
+   echo "$1 is a file	 " \\c
+elif test -d $1
+then
+   echo "$1 is a directory	"\\c
+   Dir=1
+else
+   echo $1 is neither a file nor a directory ... exiting
+   exit 1
+fi
+
+if test -r $1 
+then
+   echo " readable" \\c
+fi
+
+if test -w $1 
+then
+   echo " writable" \\c
+fi
+
+if test -x $1 
+then
+   if test $Dir -eq 0
+   then
+      echo " executable" \\c
+   else
+      echo " searchable" \\c
+   fi
+fi
+echo
+
+exit 0
+
+

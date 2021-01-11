@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# cat.silly silly shell script to test for a file's
+# existence and cat it if it does
+
+if test -f $1
+then
+   cat $1
+else
+   echo File $1 does not exist
+fi
+

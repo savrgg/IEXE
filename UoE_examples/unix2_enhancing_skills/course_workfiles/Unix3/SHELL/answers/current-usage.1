@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# set positional paramteres to quota values 
+# $2 is usage
+# $3 is quota
+# $4 is limit
+set `quota -v | sed 1,3d `
+
+echo Your current usage is $2
+exit 0

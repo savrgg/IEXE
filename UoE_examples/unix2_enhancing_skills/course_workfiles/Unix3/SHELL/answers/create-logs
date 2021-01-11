@@ -1,0 +1,10 @@
+#!/bin/sh
+
+Numlist="uno dos tres"
+
+for Num in $Numlist
+do
+   touch log-$Num
+done
+
+exit $?

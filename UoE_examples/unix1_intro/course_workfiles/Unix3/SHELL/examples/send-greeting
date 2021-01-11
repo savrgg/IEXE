@@ -1,0 +1,16 @@
+#!/bin/sh
+#send-greeting - write message to supplied user, if logged in
+
+if who | grep $1 > /dev/null
+then
+   # User is logged in 
+   :
+else
+   # User not logged in -
+   exit 1
+fi
+
+# We know user is logged in - 
+write $1 < greeting-file
+exit $?
+

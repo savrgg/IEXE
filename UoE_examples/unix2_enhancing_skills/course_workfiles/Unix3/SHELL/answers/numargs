@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# numargs - display the number of command line args
+
+echo I got $# commands line arguments

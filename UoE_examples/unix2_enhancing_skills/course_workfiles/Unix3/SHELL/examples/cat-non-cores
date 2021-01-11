@@ -1,0 +1,17 @@
+#!/bin/sh
+# cat-non-cores - cat files in the cwd  
+# which are not called core
+
+for file in *
+do
+   if test  -f $file
+   then
+      if test $file = core
+      then
+         continue
+      fi
+      # process file !
+      cat $file
+   fi
+done
+

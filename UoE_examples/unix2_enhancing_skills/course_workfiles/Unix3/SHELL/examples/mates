@@ -1,0 +1,10 @@
+#!/bin/sh
+# mates - are the following people logged in
+
+Mate_list=${Mates-"rob paul gavini"}
+
+for Mate in $Mate_list
+do
+   ison $Mate
+done
+

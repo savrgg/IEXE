@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# Turn execute bit on given file
+
+chmod +x $1

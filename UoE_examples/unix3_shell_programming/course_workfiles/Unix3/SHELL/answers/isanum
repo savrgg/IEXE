@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# Accept one arg only
+if test $# != 1
+then
+   exit 2
+fi
+
+# remove all numbers using sed - so if purely numeric Nowt will contain
+# nothing 
+
+Nowt=`echo $1 | sed 's/[0-9]//g'`
+
+if test "$Nowt"
+then
+   exit 1	# Not the null string - bad
+else 
+   exit 0	# null string good
+fi

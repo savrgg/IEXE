@@ -1,0 +1,13 @@
+#!/bin/sh
+# what-we-got - determine character type of first arg
+case "$1" in
+   [0-9]*)
+      echo "$1 starts with a number"
+      ;;
+   [a-z]*|[A-Z]*)
+      echo "$1 starts with an alphabetic"
+      ;;
+   *)
+      echo  "$1 starts with a non numeric or alphabetic character"
+      ;;
+esac

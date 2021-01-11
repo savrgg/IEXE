@@ -1,0 +1,13 @@
+#!/bin/sh
+
+for Log in *log-*
+do
+   if test -f $Log -a -w $Log
+   then
+      date >> $Log
+   else
+      echo "Cannot append to $Log, ignoring"
+   fi
+done
+
+exit 0

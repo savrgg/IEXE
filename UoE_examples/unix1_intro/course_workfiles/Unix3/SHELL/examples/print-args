@@ -1,0 +1,9 @@
+#!/bin/sh
+# print-args - print the arguments !
+
+echo My args are "$@"
+
+for Arg in "$@"
+do
+   echo $Arg
+done

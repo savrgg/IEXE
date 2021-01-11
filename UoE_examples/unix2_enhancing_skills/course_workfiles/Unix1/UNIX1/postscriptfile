@@ -1,0 +1,43 @@
+%!PS-Adobe-1.0
+%%Creator: castle:trainer (Training Group Admin)
+%%Title: daisy
+%%CreationDate: Mon Nov 22 12:14:04 1993
+%%DocumentFonts: Courier-Bold Courier
+% lib/enscript.pro -- prolog for enscript files
+% Copyright (c) 1985 Adobe Systems, Inc.
+% last edit: shore Mon Mar 11 09:10:08 1985
+save/EnscriptJob exch def
+/StartEnscriptDoc{$enscript begin}def
+/$enscript 20 dict def $enscript begin
+/EndEnscriptDoc{end}def
+/S/show load def
+/X{exch 0 rmoveto S}def
+/Y{exch 0 exch rmoveto S}def
+/B{3 1 roll moveto S}def
+/F{$fd exch get setfont}def
+/StartPage{0 18 translate /svpg save def .05 dup scale}def
+/EndPage{svpg restore showpage}def
+/DoPreFeed{/statusdict where
+ {dup/prefeed known{exch/prefeed exch put}{pop pop}ifelse}if}def
+/Landscape{90 rotate 0 -15840 translate}def
+/SetUpFonts
+ {dup/$fd exch array def{findfont exch scalefont $fd 3 1 roll put}repeat}def
+end
+StartEnscriptDoc % end fixed prolog
+1 200 /Courier-Bold
+0 200 /Courier
+2 SetUpFonts
+%%EndProlog
+%%Page: ? 1
+StartPage
+1 F
+1440 14970 (daisy        Fri Aug 27 17:56:10 1993        1)B
+0 F
+1440 14310(Mary had a little lamb)B
+1440 14090(Its fleece was white as snow)B
+1440 13870(And everywhere that Mary went)B
+1440 13650(the lamb was sure to go.)B
+EndPage
+%%Trailer
+EndEnscriptDoc
+EnscriptJob restore

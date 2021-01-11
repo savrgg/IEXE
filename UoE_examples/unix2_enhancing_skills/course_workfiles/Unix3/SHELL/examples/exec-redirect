@@ -1,0 +1,8 @@
+#!/bin/sh
+#exec-redirect
+
+exec < /etc/motd
+read Line
+echo $Line
+
+

@@ -1,0 +1,10 @@
+#!/bin/sh
+# A less verbose version of the previous 
+# script
+
+if  test $# -eq 1  -a \(  -f "$1" -a -r "$1" \)
+then
+   cat $1
+else
+   echo "Error !!"
+fi

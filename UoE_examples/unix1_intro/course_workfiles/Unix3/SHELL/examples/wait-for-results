@@ -1,0 +1,16 @@
+#!/bin/sh
+# wait-for-results - mail a message once Results_file
+# has been created.
+
+Results_file="results"
+Pause=60
+# Please change this  - I don't want the mail !
+Recipient=tony.weir@ed
+
+while test ! -f $Results_file
+do
+   sleep $Pause 
+done
+
+echo "Results have arrived" | /bin/mail $Recipient
+exit $?

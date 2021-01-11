@@ -1,0 +1,91 @@
+Page 40
+======
+Selecting football results ...
+
+* all matches played by Hibernian
+	grep Hibernian results
+
+* all home matches played by Aberdeen
+	grep '^Aberdeen' results
+
+* all away matches played by Dunfermline
+	grep 'Dunfermline$' results
+
+* all home matches played by Hibernian against Kilmarnock (Hint: you can join 
+two greps togther using a pipe).
+	grep '^Hibernian' results | grep 'Kilmarnock'
+
+Later we'll see that this could also be done using wildcards, ie
+	grep '^Hibernian.*Kilmarnock$' results
+
+Page 42
+=======
+A two digit number is simply described as a two adjacent numeric character
+classes.
+
+	grep '[0-9][0-9]' results 
+
+Page 46
+=======
+	egrep  'boiled (eggs|lettuce|yellow mush)' menu 
+
+and adapted
+
+	egrep -i 'boiled[ ]*(eggs|lettuce|yellow[ ]*mush)' menu 
+
+Page 49
+=======
+	sed '/^Drinks/,$d' menu
+
+/Drinks/ 	is a regexp address which will match the drinks section
+, 		the comma separates the two addresses
+$ 		is a special numeric address to match the end of file
+d		is the function to delete
+
+Page 52
+=======
+	sed 's/ [cC][^ ]* / Censored /g' menu
+
+	' [cC][^ ]* ' is a space followed by a lower or upper c followed
+	by any number of non-space characters followed by a space.
+	The replacement string must include the two spaces matched at the
+	start and end of the original regexp.
+
+Page 54
+=======
+	grep 10.99 menu | awk -F, '{ print $2 }'
+
+-F, sets the field delimitor to be a comma '{ print $2 }' displays
+only the second field
+
+Page 56
+=======
+	diff who-list1 who-list2
+
+Page 62
+=======
+	find addresses -type f -exec egrep -l -i 'stavros' {} \;
+
+address			is the directory to search from
+-type f			selects only files
+-exec			indicates a command is to be run on each file
+egrep -l -i 'stavros'	shows the name of any file which includes the string
+			stavros (case independent).
+{} 			is substituted by the name of each file 
+\;			closes the whole find exec expression
+
+Page 64
+=======
+
+	egrep '^[A-Z][0-9]' menu  | sort -n -t, +2 
+
+^[A-Z][0-9]' 	selects all lines which start with an upper case alphabetic
+		character followed by a number (ie selects only the menu items
+		not the headings)
+sort -n		chooses a numeric sort
+-t,		sets the columns separator to be a comma
++2		sorts on the third column (remember columns are numbered
+		from 0 )
+
+
+

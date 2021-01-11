@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# ison - is the specified user logged in
+
+if who | grep $1 > /dev/null
+then
+   # yip !-)
+   echo $1 is logged in
+   # consider this success
+   exit 0
+else
+   # nope !-(
+   echo $1 is not logged in
+   # consider this failure
+   exit 1
+fi
+

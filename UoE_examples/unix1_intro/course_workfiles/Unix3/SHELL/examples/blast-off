@@ -1,0 +1,12 @@
+#!/bin/sh
+# blast-off - countdown from ten ... then !
+
+i=10
+while test $i -ge 0
+do
+   echo $i
+   i=`expr $i - 1`
+   sleep 1
+done
+echo " ... we have lift off"
+exit 0

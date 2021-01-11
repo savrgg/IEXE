@@ -1,0 +1,13 @@
+#!/bin/sh
+
+addone()
+{
+   Added_one=`expr $1 + 1`
+}
+
+i=1
+addone  $i
+i=$Added_one
+echo i is $i
+exit 0
+

@@ -1,0 +1,19 @@
+#!/bin/sh
+#cat-file.1
+# Make sure we have an arg
+if test $# -ne 1
+then
+   echo Must supply one argument
+   exit 1
+fi
+# Make sure we can read it
+if test ! -r $1
+then
+   echo $1 - cannot read
+   exit 2
+fi
+# Now we can do something with file $1 -    
+# hell cat it !
+cat $1
+exit $?
+

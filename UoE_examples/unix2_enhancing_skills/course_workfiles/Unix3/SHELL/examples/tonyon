@@ -1,0 +1,3 @@
+#!/bin/sh
+#tonyon - is tony logged in
+who | grep tony

@@ -1,0 +1,16 @@
+#!/bin/sh
+# read-example
+# initialise the variables
+
+var1=a
+var1=b
+var3=c
+
+echo enter input
+# read some values
+read var1 var2 var3
+
+# print them out
+echo var1 is $var1
+echo var2 is $var2
+echo var3 is $var3

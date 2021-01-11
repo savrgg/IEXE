@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# Search a predefined grocery list file for the given argument
+# and provide appropriate message.
+
+Shopping_list="shopping-list"
+
+# grep regular expression better written as "^$1$" !!
+# ie ^ matches start of line
+# last $ matches end of line
+# $1 expands to all given args 
+
+if grep "^$1$" $Shopping_list > /dev/null
+then
+   echo "Yes - We're out of $@ - better get some"
+   exit 0 		# we do need
+else
+   echo "No - we still have some $@"
+   exit 1		# we don't need
+fi
+

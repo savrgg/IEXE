@@ -1,0 +1,4 @@
+#!/bin/sh
+#divide.expr - divide first arg by second
+Result=`expr $1 / $2`
+echo Result of $1 / $2 is $Result

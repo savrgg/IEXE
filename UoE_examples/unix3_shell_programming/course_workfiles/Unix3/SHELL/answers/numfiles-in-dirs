@@ -1,0 +1,26 @@
+#!/bin/sh
+# Take a series of directories as arguments and print
+# the number of files or dirs they contain
+
+if test $# = 0 
+then
+  echo usage: numfiles-in-dirs dir dir ...
+  exit 1
+fi
+
+for Dir in "$@"
+do
+   if test \! -d "$Dir"
+   then
+      echo $Dir not a directory
+      exit 1
+   fi
+done
+
+
+for Dir in "$@"
+do
+   Numfiles=`ls -d "$Dir"/* | wc -l`
+   echo Numner of files in $Dir is $Numfiles
+done
+   

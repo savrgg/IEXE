@@ -1,0 +1,173 @@
+#VirtualDesktop "2x2"
+#ResizeFont     "fg-22"
+
+#**********************************************************************
+#
+#    .twmrc
+#
+#**********************************************************************
+
+#WarpCursor
+BorderWidth	2
+TitleButtonBorderWidth    2
+
+#TitleFont	"term14"
+TitleFont "-bitstream-terminal-medium-*-*-*-*-*-*-*-*-*-iso8859-*"
+#MenuFont	"term14"
+MenuFont "-bitstream-terminal-medium-*-*-*-*-*-*-*-*-*-iso8859-*"
+#MenuFont	"lucidasans-24"
+IconFont "-bitstream-terminal-medium-*-*-*-*-*-*-*-*-*-iso8859-*"
+IconManagerFont "-bitstream-terminal-medium-*-*-*-*-*-*-*-*-*-iso8859-*"
+#IconFont	"term14"
+#IconManagerFont "term14"
+#ResizeFont	"fg-22"
+NoTitleFocus
+Zoom 100
+DecorateTransients
+
+#Button = KEYS : CONTEXT : FUNCTION
+#----------------------------------
+Button1 =      : root    : f.menu "button1"
+Button2 =      : root    : f.menu "button2"
+Button3 =      : root    : f.menu "button3"
+Button1 =  m   : window  : f.menu "button1"
+Button2 =  m   : window  : f.menu "button2"
+Button3 =  m   : window  : f.menu "button3"
+Button1 =  m   : title   : f.menu "button1"
+Button2 =  m   : title   : f.menu "button2"
+Button3 =  m   : title   : f.menu "button3"
+Button1 =      : title   : f.raise
+Button2 =      : title   : f.move
+Button3 =      : title   : f.lower
+Button1	=      : icon    : f.iconify
+Button2 =      : icon    : f.move
+Button1 =  s   : window  : f.fullzoom
+Button2 =  s   : window  : f.zoom
+
+"F12"    =      : window  : f.resize
+
+ForceIcons
+ShowIconManager
+IconifyByUnMapping
+IconManagerGeometry "240x100-0+200"
+DecorateTransients
+
+Monochrome
+{
+TitleBackground  "white"
+TitleForeground  "black"
+}
+Color
+{
+TitleBackground  "white"
+TitleForeground  "black"
+}
+
+
+Icons
+{
+  #"xterm"	"xterm.icon"
+  #"emacs"	"emacs.icon"
+}
+
+NoHighlight
+{
+  "xclock"
+  "xbiff"
+  "xload"
+}
+
+NoTitle
+{
+#  "TWM"
+#  "xclock"
+  "oclock"
+#  "xeyes"
+#  "xbiff"
+#  "xload"
+#  "xcalc"
+}
+
+AutoRaise
+{
+#  ""
+#  "xterm"
+#  "xcalc"
+}
+
+IconManagerDontShow
+{
+#  "xclock"
+#  "oclock"
+#  "xeyes"
+#  "xbiff"
+#  "xload"
+}
+
+menu "button1"
+{
+"Computers"		f.title
+#"Local Computer"!"xterm -n 'A computer' -T 'A computer' -fn  -bitstream-terminal-medium-*-*-*-*-*-*-*-*-*-iso8859-* -fg white -fg black -g 80x32 &"
+"pollux"	!"xterm -n 'pollux'     -T 'pollux'     -fn  -bitstream-terminal-medium-*-*-*-*-*-*-*-*-*-iso8859-* -fg white -fg black -g 80x32 -bg black -fg white -e rlogin pollux.ucs &"
+"Castle"	!"xterm -n castle -T castle -fn  -bitstream-terminal-medium-*-*-*-*-*-*-*-*-*-iso8859-* -fg white -bg black -g 80x32 -e rlogin castle &"
+#"Pad to castle"	!"xterm -n castle -T castle -fn  -bitstream-terminal-medium-*-*-*-*-*-*-*-*-*-iso8859-* -sb -sl 1000 -l -lf castle.log -fg white -bg black -g 80x32 -ls -e /usr/bin/pad castle &"
+#"castle window"	!"xterm -n castle -T castle -fn  -bitstream-terminal-medium-*-*-*-*-*-*-*-*-*-iso8859-* -sb -sl 1000 -l -lf castle.log  -g 80x32 -ls &"
+#"vangogh"       !"xterm -T 'Another computer' -n 'Another computer' -fn  -bitstream-terminal-medium-*-*-*-*-*-*-*-*-*-iso8859-* -e rlogin vangogh.ucs &"
+"vangogh"       !"xterm -T 'vangogh         ' -n 'vangogh         ' -fn  -bitstream-terminal-medium-*-*-*-*-*-*-*-*-*-iso8859-* -fg white -bg black -e rlogin vangogh.ucs &"
+"goya"          !"xterm -T 'Another computer' -n 'Goya' -fn  -bitstream-terminal-medium-*-*-*-*-*-*-*-*-*-iso8859-* -e rlogin goya.ucs &"
+"emas"          !"xterm -T emas -n emas -fn  -bitstream-terminal-medium-*-*-*-*-*-*-*-*-*-iso8859-* -sb -sl 1000 -l -lf emas.log -fg white -bg black -e /usr/bin/pad emas-a &"
+"ercvax"        !"xterm -T ercvax -n ercvax -fn term14 -sb -sl 1000 -l -lf ercvax.log -fg black -bg '#ffffcc' -e /usr/bin/pad ercvax &"
+#"Kenny's vax"   !"xterm -T ercvax -n ercvax -fn term14 -sb -sl 1000 -l -lf ercvax.log -fg black -bg '#ffffcc' -g 80x32 -e /usr/bin/pad ercvax &"
+#"selene"        !"xterm -T selene.ucs -n selene -fn 9x15bold -e rlogin selene.ucs &"
+#"raeburn"       !"xterm -T raeburn.ucs -n raeburn -fn 9x15bold -e rlogin raeburn.ucs &"
+"prodigal"      !"xterm -T prodigal -n prodigal -fn 9x15bold -e rlogin prodigal &"
+"info"          !"xterm -T info -n info -fn 9x15bold -e /usr/bin/pad info &"
+}
+
+
+menu "button2"
+{
+"Window Ops"		f.title
+"Refresh"		f.refresh
+"Refresh Window"	f.winrefresh
+"Move Window"		f.move
+"Resize Window"		f.resize
+"Raise Window"		f.raise
+"Lower Window"		f.lower
+"(Un)Focus on Window"	f.focus
+"Delete Window"         f.delete
+"Destroy Window"	f.destroy
+"Show icon manager"	f.showiconmgr
+"Hide icon manager"	f.hideiconmgr
+"Focus on Root"		f.unfocus
+"Source .twmrc"		f.twmrc
+"twm Version"		f.version
+"(De)Iconify"		f.iconify
+"Zoom Window"           f.zoom
+"FullZoom Window"       f.fullzoom
+"Restart twm"		f.restart
+"Kill twm"		f.quit
+}
+
+menu "button3"
+{
+"Shells"	f.title
+"xlock"		!"xlock &"
+"xcalc"		!"xcalc -g 240x320 -fn 9x15bold &"
+"X.desktop"	!"xdt &"
+"shell"		!"xterm -n shell -T shell &"
+"root"		!"xterm -n root -T root -rv -e /bin/su - rootcsh &"
+}
+
+Color{
+TitleBackground "white"
+TitleForeground "black"
+IconManagerBackground  "linen"
+}
+Monochrome
+{
+TitleBackground  "white"
+TitleForeground  "black"
+}
+
+

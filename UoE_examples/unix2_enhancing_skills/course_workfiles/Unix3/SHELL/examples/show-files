@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# show-files - run $Pager
+Numbadfiles=0
+for File in "$@"
+do
+   if test -f $File -a -r $File
+   then
+      # $File is a file and readable - process it 
+      less $File
+   else
+      Badfiles="$Badfiles $File"
+      Numbadfiles=` expr $Numbadfiles + 1 `
+   fi
+done
+echo $Numbadfiles bad files - $Badfiles
+

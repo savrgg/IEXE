@@ -1,0 +1,7 @@
+#!/bin/sh
+# eval-input
+
+echo "enter input " \\c
+read Input
+exec $Input
+echo Command exited $?

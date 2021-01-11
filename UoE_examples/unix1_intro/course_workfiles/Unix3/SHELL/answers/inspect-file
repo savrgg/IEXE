@@ -1,0 +1,45 @@
+#!/bin/sh
+
+# inspectfile takes a single file argument and if it si
+# a regular file displays it using more, or if it is a
+# "binary" file ( data or executable ) is provides a paged
+# hexadecimal octal dump
+# It uses the "file" command to determine the file type
+
+if test $# -ne 1
+then
+   echo usage: inspect-file filename
+   exit 1
+fi
+
+if test ! \(  -f $1 -a -r $1 \)
+then
+   echo "$1 is not a regular file or is not readable"
+   exit 1
+fi
+
+Type=`file $1`
+
+if test $? -ne 0
+then
+   echo Failed to run \"file\" on $1
+   exit 1
+fi
+
+Pageprog=${PAGER-more}
+
+
+case "$Type" in
+   *text*)
+      $Pageprog $1
+      ;;
+   *executable*|*data*)
+      xod $1 | $Pageprog
+      ;;
+   *)
+      echo Unknown file type	
+      ;;
+esac
+
+exit 0
+

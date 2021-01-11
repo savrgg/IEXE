@@ -1,0 +1,21 @@
+#!/bin/sh
+
+prompt_and_get()
+{
+   echo "$@" \\c
+   read Resp
+   if test "$Resp"
+   then
+      return 0
+   else
+      return 1
+   fi
+}
+
+
+if prompt_and_get "Please enter your name "
+then
+   echo name is $Resp
+else
+   echo failed to get name
+fi

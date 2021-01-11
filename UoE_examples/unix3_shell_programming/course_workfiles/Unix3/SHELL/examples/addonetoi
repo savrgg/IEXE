@@ -1,0 +1,11 @@
+#!/bin/sh
+addonetoi()
+{
+   i=`expr $i + 1`
+}
+
+i=1
+addonetoi
+echo i is $i
+exit 0
+

@@ -1,0 +1,13 @@
+#!/bin/sh
+# wait-for-results-break- if core file 
+# present don't wait
+
+while test ! -f results
+do
+   sleep ${Pause-5}
+   # If core file present - break out
+   if test -f core 
+   then
+      break
+   fi
+done

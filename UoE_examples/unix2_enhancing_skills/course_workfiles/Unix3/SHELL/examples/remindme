@@ -1,0 +1,11 @@
+#!/bin/sh
+
+        # remindme -                             
+
+        echo "Remember you have to"
+        for Task in "Wash the dog" "Hoover the house" "Phone Aunt Flo"
+        do 
+           echo $Task
+        done
+           
+

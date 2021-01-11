@@ -1,0 +1,12 @@
+#!/bin/sh
+
+Total=0
+while read Number
+do
+
+   Total=`expr $Total + $Number`
+
+done
+
+echo Total is $Total
+exit 0

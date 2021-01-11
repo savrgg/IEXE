@@ -1,0 +1,15 @@
+#!/bin/sh
+# diffold - diff all files in current directory with saved
+# copies in "old" directory.
+
+# for all files ...
+for file in *
+do
+# Check we have two files
+   if test -f $file -a -f old/$file
+   then
+   # print file name then diff
+      echo $file
+      diff $file old/$file
+   fi
+done

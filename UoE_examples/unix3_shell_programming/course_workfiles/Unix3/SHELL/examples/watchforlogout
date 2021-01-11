@@ -1,0 +1,12 @@
+#!/bin/sh
+# watchforlogout - loops until specified 
+# user has logged off
+# then print a message
+        
+until ison $1 > /dev/null
+do
+   sleep 10
+done
+echo "$1 has logged in"
+
+

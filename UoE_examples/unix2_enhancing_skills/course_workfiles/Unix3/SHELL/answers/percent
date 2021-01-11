@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Calculate the percentage first arguement is of second, ie
+# ( $1 * 100 ) / $2
+
+P=`expr $1 \* 100`
+Percent=`expr $P / $2`
+echo "$Percent%"
